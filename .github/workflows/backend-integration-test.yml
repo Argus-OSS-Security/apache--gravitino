@@ -1,30 +1,31 @@
 name: Backend Integration Test
 
 # Controls when the workflow will run
-on:
-  workflow_call:
-    inputs:
-      base-ref:
-        type: string
-        required: false
-        default: ''
-      base-sha:
-        type: string
-        required: false
-        default: ''
-      head-repository:
-        type: string
-        required: false
-        default: ''
-      head-sha:
-        type: string
-        required: false
-        default: ''
-      sync:
-        type: string
-        required: false
-        default: ''
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       base-ref:
+#         type: string
+#         required: false
+#         default: ''
+#       base-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       head-repository:
+#         type: string
+#         required: false
+#         default: ''
+#       head-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       sync:
+#         type: string
+#         required: false
+#         default: ''
+# 
 concurrency:
   group: fork-ci-backend-${{ inputs.head-sha || github.ref }}
   cancel-in-progress: true

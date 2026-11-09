@@ -10,41 +10,42 @@ name: Cron Integration Test
 
 run-name: OSS IT (${{ inputs.suites || 'all' }}) caller=${{ inputs.caller_run_id || 'manual' }}
 
-on:
-  schedule:
-    - cron: '0 19 * * *' # 19:00 UTC; 03:00 GMT+8 next day
-  workflow_dispatch:
-    inputs:
-      suites:
-        description: 'Comma-separated suites, or all'
-        required: false
-        type: string
-        default: 'all'
-      java-version:
-        description: 'JDK version'
-        required: false
-        type: string
-        default: '17'
-      caller_run_id:
-        description: 'Optional caller GitHub run id'
-        required: false
-        type: string
-        default: ''
-  workflow_call:
-    inputs:
-      suites:
-        required: false
-        type: string
-        default: 'all'
-      java-version:
-        required: false
-        type: string
-        default: '17'
-      caller_run_id:
-        required: false
-        type: string
-        default: ''
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     - cron: '0 19 * * *' # 19:00 UTC; 03:00 GMT+8 next day
+#   workflow_dispatch:
+#     inputs:
+#       suites:
+#         description: 'Comma-separated suites, or all'
+#         required: false
+#         type: string
+#         default: 'all'
+#       java-version:
+#         description: 'JDK version'
+#         required: false
+#         type: string
+#         default: '17'
+#       caller_run_id:
+#         description: 'Optional caller GitHub run id'
+#         required: false
+#         type: string
+#         default: ''
+#   workflow_call:
+#     inputs:
+#       suites:
+#         required: false
+#         type: string
+#         default: 'all'
+#       java-version:
+#         required: false
+#         type: string
+#         default: '17'
+#       caller_run_id:
+#         required: false
+#         type: string
+#         default: ''
+# 
 concurrency:
   group: cron-integration-test-${{ github.ref }}
   cancel-in-progress: false

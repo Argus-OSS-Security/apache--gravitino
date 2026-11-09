@@ -19,16 +19,17 @@
 name: Fork CI
 run-name: "${{ github.event_name == 'workflow_dispatch' && inputs.pull-request != '' && format('Trusted Fork CI #{0}', inputs.pull-request) || format('Fork CI {0}', github.ref_name) }}"
 
-on:
-  push:
-    branches: ['**']
-  workflow_dispatch:
-    inputs:
-      pull-request:
-        description: 'In apache/gravitino: PR to test using the reviewed default-branch workflows (committers only). In a fork: leave empty to test the selected branch.'
-        required: false
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: ['**']
+#   workflow_dispatch:
+#     inputs:
+#       pull-request:
+#         description: 'In apache/gravitino: PR to test using the reviewed default-branch workflows (committers only). In a fork: leave empty to test the selected branch.'
+#         required: false
+#         type: string
+# 
 permissions:
   contents: read
   actions: read

@@ -1,33 +1,34 @@
 name: TMS Test Action
 
-on:
-  workflow_call:
-    inputs:
-      base-ref:
-        type: string
-        required: false
-        default: ''
-      base-sha:
-        type: string
-        required: false
-        default: ''
-      head-repository:
-        type: string
-        required: false
-        default: ''
-      head-sha:
-        type: string
-        required: false
-        default: ''
-      sync:
-        type: string
-        required: false
-        default: ''
-      java-version:
-        required: true
-        description: 'Java version'
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       base-ref:
+#         type: string
+#         required: false
+#         default: ''
+#       base-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       head-repository:
+#         type: string
+#         required: false
+#         default: ''
+#       head-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       sync:
+#         type: string
+#         required: false
+#         default: ''
+#       java-version:
+#         required: true
+#         description: 'Java version'
+#         type: string
+# 
 jobs:
   tms-test:
     name: JDK${{ inputs.java-version }}

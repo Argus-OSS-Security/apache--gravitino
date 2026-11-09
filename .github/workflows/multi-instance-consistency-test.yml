@@ -8,9 +8,10 @@ name: Multi-Instance Consistency Test
 #
 # The test plan and assertions live in dev/ci/test_multi_instance_consistency.sh.
 
-on:
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

@@ -4,30 +4,31 @@ name: Iceberg REST Trino Integration Test
 # in auxiliary mode is accessed through Trino's native iceberg REST connector.
 # The module uses a Java 24 toolchain (Trino 478) and runs in deploy mode against
 # the built distribution, so it needs its own job rather than the catch-all backend IT.
-on:
-  workflow_call:
-    inputs:
-      base-ref:
-        type: string
-        required: false
-        default: ''
-      base-sha:
-        type: string
-        required: false
-        default: ''
-      head-repository:
-        type: string
-        required: false
-        default: ''
-      head-sha:
-        type: string
-        required: false
-        default: ''
-      sync:
-        type: string
-        required: false
-        default: ''
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       base-ref:
+#         type: string
+#         required: false
+#         default: ''
+#       base-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       head-repository:
+#         type: string
+#         required: false
+#         default: ''
+#       head-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       sync:
+#         type: string
+#         required: false
+#         default: ''
+# 
 concurrency:
   group: fork-ci-iceberg-rest-trino-${{ inputs.head-sha || github.ref }}
   cancel-in-progress: true

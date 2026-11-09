@@ -1,46 +1,47 @@
 name: Backend Integration Test Action
 
 # run backend integration test
-on:
-  workflow_call:
-    inputs:
-      base-ref:
-        type: string
-        required: false
-        default: ''
-      base-sha:
-        type: string
-        required: false
-        default: ''
-      head-repository:
-        type: string
-        required: false
-        default: ''
-      head-sha:
-        type: string
-        required: false
-        default: ''
-      sync:
-        type: string
-        required: false
-        default: ''
-      architecture:
-        required: true
-        description: 'Architecture of the platform'
-        type: string
-      java-version:
-        required: true
-        description: 'Java version'
-        type: string
-      backend:
-        required: true
-        description: 'Backend storage for Gravitino'
-        type: string
-      test-mode:
-        required: true
-        description: 'run on embedded or deploy mode'
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       base-ref:
+#         type: string
+#         required: false
+#         default: ''
+#       base-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       head-repository:
+#         type: string
+#         required: false
+#         default: ''
+#       head-sha:
+#         type: string
+#         required: false
+#         default: ''
+#       sync:
+#         type: string
+#         required: false
+#         default: ''
+#       architecture:
+#         required: true
+#         description: 'Architecture of the platform'
+#         type: string
+#       java-version:
+#         required: true
+#         description: 'Java version'
+#         type: string
+#       backend:
+#         required: true
+#         description: 'Backend storage for Gravitino'
+#         type: string
+#       test-mode:
+#         required: true
+#         description: 'run on embedded or deploy mode'
+#         type: string
+# 
 jobs:
   start-runner:
     name: JDK${{ inputs.java-version }}-${{ inputs.test-mode }}-${{ inputs.backend }}

@@ -16,23 +16,24 @@
 # limitations under the License.
 
 name: Update Fork CI Status
-on:
-  workflow_run:
-    workflows: [Fork CI PR Signal, Fork CI]
-    types: [completed]
-  schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
-    inputs:
-      pull-request:
-        description: 'Optional PR number to force-refresh, including settled statuses'
-        required: false
-        type: string
-      sweep:
-        description: 'Run a polling sweep instead (the previous sweep dispatches this)'
-        required: false
-        type: boolean
-        default: false
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows: [Fork CI PR Signal, Fork CI]
+#     types: [completed]
+#   schedule:
+#     - cron: '*/5 * * * *'
+#   workflow_dispatch:
+#     inputs:
+#       pull-request:
+#         description: 'Optional PR number to force-refresh, including settled statuses'
+#         required: false
+#         type: string
+#       sweep:
+#         description: 'Run a polling sweep instead (the previous sweep dispatches this)'
+#         required: false
+#         type: boolean
+#         default: false
 permissions: {}
 # Commit statuses are append-only with no compare-and-swap. Signals and dispatches share one
 # queue, so a burst of PR events is processed in order and none replaces another. Sweeps poll

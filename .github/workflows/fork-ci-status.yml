@@ -17,9 +17,10 @@
 
 # This unprivileged event only wakes the default-branch status publisher.
 name: Fork CI PR Signal
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, edited]
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened, edited]
 permissions: {}
 jobs:
   signal:

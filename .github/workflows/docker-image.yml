@@ -1,52 +1,53 @@
 name: Publish Docker Image
 
-on:
-  workflow_dispatch:
-    inputs:
-      image:
-        type: choice
-        description: 'Choose the image to build'
-        required: true
-        default: 'gravitino'
-        options:
-          - 'gravitino'
-          - 'gravitino-ci:hive'
-          - 'gravitino-ci:kerberos-hive'
-          - 'gravitino-ci:trino'
-          - 'gravitino-ci:doris'
-          - 'gravitino-ci:ranger'
-          - 'gravitino-playground:trino'
-          - 'gravitino-playground:hive'
-          - 'gravitino-playground:ranger'
-          - 'gravitino-iceberg-rest-server'
-          - 'gravitino-mcp-server'
-          - 'gravitino-lance-rest-server'
-          - 'gravitino-trino-connector'
-          - 'gravitino-flink-connector'
-          - 'gravitino-spark-connector'
-      docker_repo_name:
-        description: 'Docker repository name (default is apache)'
-        required: false
-        default: 'apache'
-        type: string
-      version:
-        description: 'Docker version to apply to this image'
-        required: true
-        type: string
-      username:
-        description: 'Docker username'
-        required: true
-        type: string
-      token:
-        description: 'Publish Docker token'
-        required: true
-        type: string
-      publish-latest-tag:
-        description: 'Whether to update the latest tag. This operation is only applicable to official releases and should not be used for Release Candidate (RC).'
-        required: false
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       image:
+#         type: choice
+#         description: 'Choose the image to build'
+#         required: true
+#         default: 'gravitino'
+#         options:
+#           - 'gravitino'
+#           - 'gravitino-ci:hive'
+#           - 'gravitino-ci:kerberos-hive'
+#           - 'gravitino-ci:trino'
+#           - 'gravitino-ci:doris'
+#           - 'gravitino-ci:ranger'
+#           - 'gravitino-playground:trino'
+#           - 'gravitino-playground:hive'
+#           - 'gravitino-playground:ranger'
+#           - 'gravitino-iceberg-rest-server'
+#           - 'gravitino-mcp-server'
+#           - 'gravitino-lance-rest-server'
+#           - 'gravitino-trino-connector'
+#           - 'gravitino-flink-connector'
+#           - 'gravitino-spark-connector'
+#       docker_repo_name:
+#         description: 'Docker repository name (default is apache)'
+#         required: false
+#         default: 'apache'
+#         type: string
+#       version:
+#         description: 'Docker version to apply to this image'
+#         required: true
+#         type: string
+#       username:
+#         description: 'Docker username'
+#         required: true
+#         type: string
+#       token:
+#         description: 'Publish Docker token'
+#         required: true
+#         type: string
+#       publish-latest-tag:
+#         description: 'Whether to update the latest tag. This operation is only applicable to official releases and should not be used for Release Candidate (RC).'
+#         required: false
+#         type: boolean
+#         default: false
+# 
 jobs:
   publish-docker-image:
     runs-on: ubuntu-latest

@@ -1,17 +1,18 @@
 name: Lance Compatibility Matrix Test Action
 
-on:
-  workflow_call:
-    inputs:
-      lance_spark_versions:
-        required: false
-        type: string
-        default: '0.2.0,0.4.0,0.5.1'
-      lance_ray_versions:
-        required: false
-        type: string
-        default: '0.4.2,0.3.0'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       lance_spark_versions:
+#         required: false
+#         type: string
+#         default: '0.2.0,0.4.0,0.5.1'
+#       lance_ray_versions:
+#         required: false
+#         type: string
+#         default: '0.4.2,0.3.0'
+# 
 jobs:
   lance-spark-matrix:
     runs-on: ubuntu-latest

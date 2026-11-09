@@ -21,12 +21,13 @@ name: Conflict Marker Check
 
 # Standalone workflow so path filters on build.yml cannot skip this check.
 # Catches cherry-pick / sync PRs that commit unresolved git conflict markers.
-on:
-  pull_request:
-    branches: ["main", "branch-*"]
-  push:
-    branches: ["main", "branch-*"]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     branches: ["main", "branch-*"]
+#   push:
+#     branches: ["main", "branch-*"]
+# 
 permissions:
   contents: read
 

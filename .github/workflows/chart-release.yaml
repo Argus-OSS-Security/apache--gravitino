@@ -1,31 +1,32 @@
 name: Publish Helm Charts
 
-on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Chart version to publish (e.g., 1.3.0)'
-        required: true
-        type: string
-      username:
-        description: 'Docker Hub username'
-        required: true
-        type: string
-      token:
-        description: 'Publish Docker token'
-        required: true
-        type: string
-      docker_repo_name:
-        description: 'Docker repository name (default is apache)'
-        required: false
-        default: 'apache'
-        type: string
-      charts:
-        description: 'Charts to publish (comma-separated: gravitino,iceberg,lance or "all")'
-        required: false
-        default: 'all'
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       version:
+#         description: 'Chart version to publish (e.g., 1.3.0)'
+#         required: true
+#         type: string
+#       username:
+#         description: 'Docker Hub username'
+#         required: true
+#         type: string
+#       token:
+#         description: 'Publish Docker token'
+#         required: true
+#         type: string
+#       docker_repo_name:
+#         description: 'Docker repository name (default is apache)'
+#         required: false
+#         default: 'apache'
+#         type: string
+#       charts:
+#         description: 'Charts to publish (comma-separated: gravitino,iceberg,lance or "all")'
+#         required: false
+#         default: 'all'
+#         type: string
+# 
 jobs:
   publish-helm-charts:
     runs-on: ubuntu-latest

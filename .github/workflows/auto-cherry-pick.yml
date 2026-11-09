@@ -1,10 +1,11 @@
 name: Automatically cherry-pick merged PR to different branches
 
-on:
-  push:
-    branches:
-      - main
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - main
+# 
 jobs:
   detect-cherry-pick-labels:
     # Contributor forks run workflows for Fork CI; cherry-picks only apply to the

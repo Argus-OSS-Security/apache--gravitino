@@ -33,13 +33,14 @@
 
 name: Label issues with fix version
 
-on:
-  pull_request_target:
-    types: [closed]
-  push:
-    tags:
-      - 'v*-rc*'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request_target:
+#     types: [closed]
+#   push:
+#     tags:
+#       - 'v*-rc*'
+# 
 permissions:
   contents: read
   issues: write
